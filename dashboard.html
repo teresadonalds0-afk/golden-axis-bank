@@ -62,7 +62,6 @@ border-radius:12px;
 <div>
 <p style="font-size:12px;">Balance</p>
 <h2 id="balance">$12,450</h2>
-</div>
 
 <div>
 <p style="font-size:12px;">Status</p>
@@ -133,13 +132,27 @@ history.push("Transfer to " + account + " - $" + amount);
 
 localStorage.setItem("history", JSON.stringify(history));
 
+<script>
+
+function sendMoney(){
+
+let amount = document.getElementById("amount").value;
+let balance = localStorage.getItem("balance") || 12450;
+
+balance = balance - amount;
+
+localStorage.setItem("balance", balance);
+
 alert("Transfer Successful!");
 
 location.reload();
 
 }
 
-</script>
+let savedBalance = localStorage.getItem("balance");
 
-</body>
-</html>
+if(savedBalance){
+document.getElementById("balance").innerText = "$" + savedBalance;
+}
+
+</script>
