@@ -79,6 +79,34 @@ Send Money
 </div>
 
 </div>
+<script>
 
+let balance = 12450;
+
+function sendMoney(){
+
+let amount = document.querySelector('input[placeholder="Amount"]').value;
+
+amount = Number(amount);
+
+if(amount <= 0){
+alert("Enter valid amount");
+return;
+}
+
+if(amount > balance){
+alert("Insufficient funds");
+return;
+}
+
+balance = balance - amount;
+
+alert("Transfer Successful!");
+
+localStorage.setItem("balance", balance);
+
+}
+
+</script>
 </body>
 </html>
