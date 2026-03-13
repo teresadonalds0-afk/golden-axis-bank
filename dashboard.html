@@ -77,9 +77,8 @@ Golden Axis Bank
 <div class="card">
 <h3>Recent Transactions</h3>
 
-<p>Amazon Purchase - $120</p>
-<p>Salary Deposit +$2,000</p>
-<p>Netflix - $15</p>
+<h3>Recent Transactions</h3>
+<div id="transactions"></div>
 
 </div>
 
@@ -94,6 +93,22 @@ document.getElementById("balance").innerText = "$" + savedBalance;
 }
 
 </script>
+<script>
 
+let history = JSON.parse(localStorage.getItem("history")) || [];
+
+let container = document.getElementById("transactions");
+
+history.reverse().forEach(function(item){
+
+let p = document.createElement("p");
+
+p.innerText = item;
+
+container.appendChild(p);
+
+});
+
+</script>
 </body>
 </html>
