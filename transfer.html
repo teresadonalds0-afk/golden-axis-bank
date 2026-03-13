@@ -51,10 +51,7 @@ font-weight:bold;
 <label>Amount</label>
 <input type="number">
 
-<button onclick="alert('Transfer Successful')">
-Transfer Money
-</button>
-
+<button onclick="sendMoney()">Transfer Money</button>
 <br><br>
 
 <a href="dashboard.html">
@@ -62,6 +59,24 @@ Transfer Money
 </a>
 
 </div>
+<script>
 
+function sendMoney(){
+
+let amount = document.querySelector('input[type="number"]').value;
+
+let balance = localStorage.getItem("balance") || 12450;
+
+balance = balance - amount;
+
+localStorage.setItem("balance", balance);
+
+alert("Transfer Successful");
+
+window.location.href="dashboard.html";
+
+}
+
+</script>
 </body>
 </html>
