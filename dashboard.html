@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Golden Axis Bank Dashboard</title>
+<title>Golden Axis Bank</title>
 
 <style>
 
@@ -17,82 +17,52 @@ background:gold;
 color:black;
 padding:20px;
 font-size:24px;
-font-weight:bold;
 text-align:center;
-}
-
-.container{
-padding:20px;
+font-weight:bold;
 }
 
 .card{
 background:#111;
+margin:20px;
 padding:20px;
 border-radius:10px;
-margin-bottom:20px;
-}
-
-.balance{
-font-size:30px;
-color:gold;
 }
 
 button{
 background:gold;
+color:black;
 border:none;
-padding:12px 20px;
-border-radius:8px;
-font-size:16px;
+padding:10px 20px;
+margin:10px 0;
+border-radius:6px;
 }
 
 </style>
-
 </head>
 
 <body>
 
-<header>
-Golden Axis Bank
-</header>
-
-<div class="container">
+<header>Golden Axis Bank</header>
 
 <div class="card">
-<h3>Account Balance</h3>
-<div class="balance" id="balance">$12,450.00</div>
+<h2>Account Balance</h2>
+<h1 id="balance">$12450</h1>
 </div>
 
 <div class="card">
-<h3>Quick Actions</h3>
+<h2>Quick Actions</h2>
 
-<a href="transfer.html">
-<button>Transfer Money</button>
-</a>
-<br><br>
-
-<button>Transaction History</button>
+<button onclick="transfer()">Transfer Money</button>
 
 </div>
 
 <div class="card">
-<h3>Recent Transactions</h3>
+<h2>Recent Transactions</h2>
 
-<h3>Recent Transactions</h3>
 <div id="transactions"></div>
 
 </div>
 
-</div>
-
-<script>
-
-let savedBalance = localStorage.getItem("balance");
-
-if(savedBalance){
-document.getElementById("balance").innerText = "$" + savedBalance;
-}
-
-</script>
 <script>
 
 let history = JSON.parse(localStorage.getItem("history")) || [];
@@ -109,6 +79,27 @@ container.appendChild(p);
 
 });
 
+function transfer(){
+
+let account = prompt("Enter account number");
+
+let amount = prompt("Enter amount");
+
+let balance = 12450;
+
+balance = balance - amount;
+
+history.push("Transfer to " + account + " - $" + amount);
+
+localStorage.setItem("history", JSON.stringify(history));
+
+alert("Transfer Successful!");
+
+location.reload();
+
+}
+
 </script>
+
 </body>
 </html>
