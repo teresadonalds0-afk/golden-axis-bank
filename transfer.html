@@ -102,7 +102,13 @@ return;
 balance = balance - amount;
 
 alert("Transfer Successful!");
+let account = document.getElementById("account").value;
 
+let history = JSON.parse(localStorage.getItem("history")) || [];
+
+history.push("Transfer to " + account + " - $" + amount);
+
+localStorage.setItem("history", JSON.stringify(history));
 localStorage.setItem("balance", balance);
 
 }
