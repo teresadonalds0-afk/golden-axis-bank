@@ -2,21 +2,23 @@
 <html>
 <head>
 <title>Golden Axis Bank</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-
 body{
 background:black;
 color:white;
 font-family:Arial;
 text-align:center;
+margin:0;
 }
 
 header{
 background:gold;
 color:black;
 padding:20px;
-font-size:26px;
+font-size:28px;
+font-weight:bold;
 }
 
 .login{
@@ -24,38 +26,39 @@ margin-top:100px;
 }
 
 input{
-padding:10px;
+padding:12px;
 margin:10px;
 width:220px;
+border-radius:6px;
+border:none;
 }
 
 button{
 background:gold;
+color:black;
 border:none;
-padding:10px 20px;
-font-weight:bold;
+padding:12px 30px;
+font-size:16px;
+border-radius:6px;
 }
 
+button:hover{
+opacity:0.9;
+}
 </style>
-
 </head>
 
 <body>
 
-<header>
-Golden Axis Bank
-</header>
+<header>Golden Axis Bank</header>
 
 <div class="login">
+<h2>Secure Login</h2>
 
-<h2>Online Banking Login</h2>
-
-<input placeholder="Username"><br>
-
+<input type="text" placeholder="Account Number"><br>
 <input type="password" placeholder="Password"><br>
 
 <button>Login</button>
-
 </div>
 
 </body>
