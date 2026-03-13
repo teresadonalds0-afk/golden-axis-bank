@@ -4,115 +4,56 @@
 <title>Transfer Money - Golden Axis Bank</title>
 
 <style>
-
 body{
-background:black;
+background:#000;
 color:white;
 font-family:Arial;
-margin:0;
-}
-
-header{
-background:gold;
-color:black;
 padding:20px;
-font-size:22px;
-font-weight:bold;
-text-align:center;
 }
 
 .container{
-padding:20px;
-}
-
-input{
-width:100%;
-padding:12px;
-margin:10px 0;
-border-radius:6px;
-border:none;
-}
-
-button{
-background:gold;
-color:black;
-border:none;
-padding:12px;
-width:100%;
-font-size:16px;
-border-radius:6px;
-}
-
-.card{
 background:#111;
 padding:20px;
 border-radius:10px;
 }
 
+input{
+width:100%;
+padding:12px;
+margin-top:10px;
+border:none;
+border-radius:6px;
+}
+
+button{
+background:gold;
+color:black;
+padding:12px;
+border:none;
+border-radius:6px;
+margin-top:15px;
+width:100%;
+font-weight:bold;
+}
 </style>
 
 </head>
 
 <body>
 
-<header>
-Golden Axis Bank
-</header>
+<h2>Transfer Money</h2>
 
 <div class="container">
 
-<div class="card">
+<label>Account Number</label>
+<input type="text">
 
-<h2>Transfer Money</h2>
+<label>Amount</label>
+<input type="number">
 
-<input type="text" placeholder="Recipient Name">
-
-<input type="text" placeholder="Account Number">
-
-<input id="amount" type="number" placeholder="Amount">
-
-<input type="text" placeholder="Reference">
-
-<button onclick="sendMoney()">
-Send Money
-</button>
-</div>
+<button>Send Money</button>
 
 </div>
-<script>
 
-let balance = 12450;
-
-function sendMoney(){
-
-let amount = document.getElementById("amount").value;
-
-amount = Number(amount);
-
-if(amount <= 0){
-alert("Enter valid amount");
-return;
-}
-
-if(amount > balance){
-alert("Insufficient funds");
-return;
-}
-
-balance = balance - amount;
-
-alert("Transfer Successful!");
-let account = document.getElementById("account").value;
-
-let history = JSON.parse(localStorage.getItem("history")) || [];
-
-history.push("Transfer to " + account + " - $" + amount);
-
-localStorage.setItem("history", JSON.stringify(history));
-localStorage.setItem("balance", balance);
-
-}
-
-</script>
 </body>
 </html>
